@@ -7,10 +7,9 @@ class splash_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 52, 42, 42),
         body: Container(
-          width: double.infinity,
-          child: Splash_Viewbody(),
-        ));
+      width: double.infinity,
+      child: Splash_Viewbody(),
+    ));
   }
 }
