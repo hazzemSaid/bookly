@@ -1,5 +1,6 @@
+import 'package:bookly_app/features/presentation/view/widgets/animation/textsliding.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Splash_Viewbody extends StatefulWidget {
   const Splash_Viewbody({super.key});
@@ -33,6 +34,7 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
     super.dispose();
   }
 
+  bool locle = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,31 +44,16 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
         Container(
           margin: const EdgeInsets.only(top: 300),
           width: 250,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              return SlideTransition(
-                position: _animation,
-                child:
-                    Image.asset("assets/images/Logo.png", fit: BoxFit.contain),
-              );
-            },
-          ),
+          child: animation_testsliding(
+              controller: _controller, animation: _animation),
         ),
         const SizedBox(height: 20),
         Container(
           margin: const EdgeInsets.only(top: 60),
           padding: const EdgeInsets.only(top: 60),
-          child: const SimpleCircularProgressBar(
-            progressColors: [
-              Colors.black12,
-              Colors.black26,
-              Color(0xFF3D3D3D),
-              Color.fromARGB(255, 101, 100, 100),
-              Colors.grey,
-            ],
-            size: 30,
-            backStrokeWidth: 0,
+          child: LoadingAnimationWidget.hexagonDots(
+            color: Colors.white,
+            size: 40,
           ),
         ),
         const SizedBox(height: 20),
