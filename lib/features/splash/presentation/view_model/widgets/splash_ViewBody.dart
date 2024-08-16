@@ -1,5 +1,7 @@
-import 'package:bookly_app/features/presentation/view/widgets/animation/textsliding.dart';
+import 'package:bookly_app/features/home/persentation/view_model/homemodel.dart';
+import 'package:bookly_app/features/splash/presentation/view/animation/textsliding.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Splash_Viewbody extends StatefulWidget {
@@ -17,6 +19,17 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
   @override
   void initState() {
     super.initState();
+    animationSlidingtext();
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(
+        () => Homepage(),
+        transition: Transition.fade,
+        duration: Duration(milliseconds: 250),
+      );
+    });
+  }
+
+  void animationSlidingtext() {
     _controller = AnimationController(
       duration: const Duration(seconds: 3),
       vsync: this, // `this` is the TickerProvider
@@ -34,7 +47,6 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
     super.dispose();
   }
 
-  bool locle = false;
   @override
   Widget build(BuildContext context) {
     return Column(
