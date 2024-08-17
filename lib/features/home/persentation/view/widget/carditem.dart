@@ -1,4 +1,4 @@
-import 'package:bookly_app/constrain.dart';
+import 'package:bookly_app/features/home/persentation/view/widget/image_item.dart';
 import 'package:flutter/material.dart';
 
 class Carditem extends StatelessWidget {
@@ -11,13 +11,9 @@ class Carditem extends StatelessWidget {
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, indx) {
-            return Container(
-              height: 150,
-              color: backGround,
-              margin: const EdgeInsets.only(left: 5),
-              child: Image.asset(
-                testImage,
-              ),
+            return Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: item_image(),
             );
           },
         ),
