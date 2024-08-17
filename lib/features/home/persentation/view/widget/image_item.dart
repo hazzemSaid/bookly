@@ -9,9 +9,9 @@ class item_image extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQueryData().size.height * 0.3,
+      height: const MediaQueryData().size.height * 0.3,
       child: AspectRatio(
-        aspectRatio: 2.9 / 4,
+        aspectRatio: 2.3 / 4,
         //w/h
         child: Container(
           decoration: BoxDecoration(

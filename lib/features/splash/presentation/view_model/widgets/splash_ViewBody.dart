@@ -20,11 +20,11 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
   void initState() {
     super.initState();
     animationSlidingtext();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 4), () {
       Get.to(
         () => Homepage(),
-        transition: Transition.fade,
-        duration: Duration(milliseconds: 250),
+        transition: Transition.circularReveal,
+        duration: const Duration(milliseconds: 400),
       );
     });
   }

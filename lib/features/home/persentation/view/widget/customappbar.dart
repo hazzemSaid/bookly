@@ -10,7 +10,7 @@ class CustomAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 20, bottom: 0),
           child: Image.asset(
             logo,
             width: 100,
@@ -21,7 +21,7 @@ class CustomAppbar extends StatelessWidget {
           padding: const EdgeInsets.only(right: 10),
           child: IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               size: 30,
               color: Colors.white,
               Icons.search,

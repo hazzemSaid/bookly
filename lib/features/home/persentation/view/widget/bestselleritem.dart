@@ -1,5 +1,6 @@
 import 'package:bookly_app/constrain.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class bestSelleritems extends StatelessWidget {
   const bestSelleritems({
@@ -9,15 +10,15 @@ class bestSelleritems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(child: ListView.builder(itemBuilder: (context, indx) {
+      child: ListView.builder(itemBuilder: (context, indx) {
         return Container(
             width: double.infinity,
-            padding: EdgeInsets.only(bottom: 5),
+            padding: const EdgeInsets.only(bottom: 5),
             margin: const EdgeInsets.only(top: 10),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 25),
+                  padding: const EdgeInsets.only(left: 25),
                   child: Image.asset(
                     testImage2,
                     fit: BoxFit.contain,
@@ -25,22 +26,23 @@ class bestSelleritems extends StatelessWidget {
                     width: 70,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                   height: 50,
                 ),
-                Column(
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("Harry Potter and the Goblet of Fire"),
-                    Text("J.K. Rowling"),
+                    Text(
+                      "Harry Potter and the Goblet of Fire",
+                    ),
+                    Text(
+                      "J.K. Rowling",
+                    ),
                     Row(
                       children: [
                         Text(
                           "19.99 €",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
                         ),
                         SizedBox(
                           width: 123,
@@ -48,11 +50,16 @@ class bestSelleritems extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Text("4.8 (2390)")
+                            Padding(
+                                padding: EdgeInsets.only(right: 5),
+                                child: Icon(
+                                  FontAwesomeIcons.star,
+                                  size: 15,
+                                  color: Colors.yellow,
+                                )),
+                            Text(
+                              "4.8 (2390)",
+                            )
                           ],
                         )
                       ],
@@ -61,7 +68,7 @@ class bestSelleritems extends StatelessWidget {
                 )
               ],
             ));
-      })),
+      }),
     );
   }
 }
