@@ -6,18 +6,18 @@ class Carditem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.only(left: 5),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, indx) {
-            return const Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: item_image(),
-            );
-          },
-        ),
+    return Container(
+      height: 200, // Set a fixed height for the horizontal list
+      padding: const EdgeInsets.only(left: 5),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, indx) {
+          return const Padding(
+            padding: EdgeInsets.only(left: 10.0),
+            child: item_image(),
+          );
+        },
+        itemCount: 10, // Adjust based on your data
       ),
     );
   }
