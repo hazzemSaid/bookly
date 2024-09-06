@@ -1,7 +1,6 @@
-import 'package:bookly_app/features/home/persentation/view_model/homemodel.dart';
 import 'package:bookly_app/features/splash/presentation/view/animation/textsliding.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Splash_Viewbody extends StatefulWidget {
@@ -21,11 +20,8 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
     super.initState();
     animationSlidingtext();
     Future.delayed(const Duration(seconds: 4), () {
-      Get.to(
-        () => Homepage(),
-        transition: Transition.circularReveal,
-        duration: const Duration(milliseconds: 400),
-      );
+      // After 4 seconds, navigate to the HomeScreen
+      GoRouter.of(context).go('/Homepage');
     });
   }
 

@@ -1,6 +1,5 @@
 import 'package:bookly_app/features/home/persentation/view_model/homemodel.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -23,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // Using Navigator to go to the next screen after a delay
     //using getx
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => const Homepage());
+      // After 3 seconds, navigate to the HomeScreen
     });
 
     _controller.forward();

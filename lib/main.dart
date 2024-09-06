@@ -1,7 +1,8 @@
 import 'package:bookly_app/constrain.dart';
+import 'package:bookly_app/core/util/navcontroll.dart';
 import 'package:bookly_app/features/splash/presentation/view_model/widgets/splash_Screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,7 +14,8 @@ class Bookly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: Navcontroll.route,
       title: 'Bookly',
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
@@ -21,7 +23,6 @@ class Bookly extends StatelessWidget {
         primaryColor: Colors.white,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const splash_Screen(),
     );
   }
 }
