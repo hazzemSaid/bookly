@@ -1,5 +1,7 @@
 import 'package:bookly_app/constrain.dart';
+import 'package:bookly_app/core/util/navcontroll.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -20,7 +22,9 @@ class CustomAppbar extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(right: 10),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(Navcontroll.Search);
+            },
             icon: const Icon(
               size: 30,
               color: Colors.white,

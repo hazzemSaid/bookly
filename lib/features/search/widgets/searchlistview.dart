@@ -4,17 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerItems extends StatelessWidget {
-  const BestSellerItems({
+class SearchListView extends StatelessWidget {
+  const SearchListView({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      shrinkWrap: true,
-      physics:
-          NeverScrollableScrollPhysics(), // Prevent ListView from scrolling independently
       itemBuilder: (context, indx) {
         return GestureDetector(
           onTap: () => GoRouter.of(context).push(Navcontroll.Detailes),
