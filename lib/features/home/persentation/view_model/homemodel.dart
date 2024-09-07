@@ -13,10 +13,10 @@ class Homepage extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: CustomAppbar(),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: Carditem(),
             ),
             SliverToBoxAdapter(
@@ -30,13 +30,8 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return const BestSellerItems();
-                },
-                childCount: 1, // You can adjust this count based on your data
-              ),
+            const SliverToBoxAdapter(
+              child: BestSellerItems(),
             ),
           ],
         ),

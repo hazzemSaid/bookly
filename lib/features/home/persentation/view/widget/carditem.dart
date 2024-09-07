@@ -15,7 +15,7 @@ class Carditem extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, indx) {
           return GestureDetector(
-            onTap: () => GoRouter.of(context).go(Navcontroll.Detailes),
+            onTap: () => GoRouter.of(context).push(Navcontroll.Detailes),
             child: Padding(
               padding: EdgeInsets.only(left: 10.0),
               child: item_image(),

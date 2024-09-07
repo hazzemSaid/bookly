@@ -17,7 +17,7 @@ class BestSellerItems extends StatelessWidget {
           NeverScrollableScrollPhysics(), // Prevent ListView from scrolling independently
       itemBuilder: (context, indx) {
         return GestureDetector(
-          onTap: () => GoRouter.of(context).go(Navcontroll.Detailes),
+          onTap: () => GoRouter.of(context).push(Navcontroll.Detailes),
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.only(bottom: 5),

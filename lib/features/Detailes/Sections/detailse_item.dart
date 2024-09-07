@@ -9,10 +9,10 @@ class detailseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'The Jungle Book',
           style: TextStyle(
             color: Colors.white,
@@ -20,11 +20,11 @@ class detailseItem extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: double.infinity,
           height: 10,
         ),
-        const Text(
+        Text(
           'Rudyard Kipling',
           style: TextStyle(
             color: Colors.white24,
@@ -32,7 +32,7 @@ class detailseItem extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         Row(
