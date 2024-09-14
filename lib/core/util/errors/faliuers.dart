@@ -20,10 +20,8 @@ class ServerFailures extends Failures {
             e.response!.statusCode!, e.response!.data);
       case DioExceptionType.cancel:
         return ServerFailures(message: 'Request Cancelled');
-      case DioExceptionType.unknown:
-        return ServerFailures(message: 'Something went wrong');
       default:
-        return ServerFailures(message: 'Something went wrong');
+        return ServerFailures(message: '$e');
     }
   }
   factory ServerFailures.fromException(

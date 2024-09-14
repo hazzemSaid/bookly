@@ -21,11 +21,11 @@ class Homepage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                padding: const EdgeInsets.only(left: 25, bottom: 20),
+                padding: const EdgeInsets.only(left: 25, bottom: 20, top: 12),
                 width: double.infinity,
                 child: const Text(
                   textAlign: TextAlign.start,
-                  "Best Seller",
+                  "NEWST books",
                   style: Style.titlemedium,
                 ),
               ),

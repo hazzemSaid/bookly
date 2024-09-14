@@ -16,7 +16,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    print("object");
     initAnimationSlidingText();
 
     // Using Navigator to go to the next screen after a delay

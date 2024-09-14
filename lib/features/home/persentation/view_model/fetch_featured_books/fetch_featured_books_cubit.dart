@@ -3,7 +3,6 @@ import 'package:bookly_app/core/util/errors/faliuers.dart';
 import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/data/reops/home_repo_impl.dart';
 import 'package:dio/dio.dart';
-import 'package:equatable/equatable.dart';
 
 part 'fetch_featured_books_state.dart';
 
@@ -13,14 +12,17 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
   FetchFeaturedBooksCubit(this.homeRepo) : super(FetchFeaturedBooksInitial());
 
   Future<void> FetchFeaturedBooks() async {
+    print("Start");
     emit(FetchFeaturedBooksLaoding());
 
     try {
-      final response = await homeRepo.FetchFeaturedBooks();
+      print("try");
+      final response = await homeRepo.GetFeaturedBooks();
       response.fold(
         (failure) => emit(FetchFeaturedBooksFailure(failure.message)),
         (books) => emit(FetchFeaturedBooksSccuess(books)),
       );
+      print(response.isLeft());
     } on Exception catch (e) {
       if (e is DioException) {
         emit(FetchFeaturedBooksFailure(

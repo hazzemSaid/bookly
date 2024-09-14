@@ -1,5 +1,7 @@
+import 'package:bookly_app/features/home/persentation/view_model/fetch_featured_books/fetch_featured_books_cubit.dart';
 import 'package:bookly_app/features/splash/presentation/view/animation/textsliding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -18,11 +20,14 @@ class _Splash_ViewbodyState extends State<Splash_Viewbody>
   @override
   void initState() {
     super.initState();
+
     animationSlidingtext();
     Future.delayed(const Duration(seconds: 4), () {
       // After 4 seconds, navigate to the HomeScreen
       GoRouter.of(context).go('/Homepage');
     });
+    print('fetch featured books');
+    BlocProvider.of<FetchFeaturedBooksCubit>(context).FetchFeaturedBooks();
   }
 
   void animationSlidingtext() {
