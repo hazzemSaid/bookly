@@ -56,6 +56,9 @@ class bookListView extends StatelessWidget {
                               fontSize: 10,
                             ),
                           ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           Text(
                             state.books[indx].volumeInfo!.authors?[0]
                                     ?.substring(
@@ -65,6 +68,9 @@ class bookListView extends StatelessWidget {
                                                 .authors![0]!.length,
                                             10)) ??
                                 '',
+                          ),
+                          const SizedBox(
+                            height: 5,
                           ),
                           Row(
                             children: [
