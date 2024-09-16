@@ -12,6 +12,7 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             const SliverToBoxAdapter(
               child: CustomAppbar(),

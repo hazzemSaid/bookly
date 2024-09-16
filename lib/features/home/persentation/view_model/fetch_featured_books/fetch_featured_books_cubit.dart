@@ -16,14 +16,12 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
     emit(FetchFeaturedBooksLaoding());
 
     try {
-      print("try");
       final response = await homeRepo.GetFeaturedBooks();
       response.fold(
         (failure) => emit(FetchFeaturedBooksFailure(failure.message)),
         (books) => emit(FetchFeaturedBooksSccuess(books)),
       );
-      print(response.isLeft());
-    } on Exception catch (e) {
+    } catch (e) {
       if (e is DioException) {
         emit(FetchFeaturedBooksFailure(
             ServerFailures.fromDioException(e).message));

@@ -109,8 +109,10 @@ class bookListView extends StatelessWidget {
             itemCount: state.books.length, // Adjust based on your data
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [CircularProgressIndicator()],
           );
         }
       },

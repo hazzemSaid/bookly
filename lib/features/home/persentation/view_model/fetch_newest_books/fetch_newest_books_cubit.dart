@@ -18,7 +18,7 @@ class FetchNewestBooksCubit extends Cubit<FetchNewestBooksState> {
         (failure) => emit(FetchNewestBooksFailure(failure.message)),
         (books) => emit(FetchNewestBooksSuccess(books)),
       );
-    } on Exception catch (e) {
+    } catch (e) {
       if (e is DioException) {
         emit(
           FetchNewestBooksFailure(ServerFailures.fromDioException(e).message),
