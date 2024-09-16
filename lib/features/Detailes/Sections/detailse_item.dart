@@ -6,7 +6,6 @@ class detailseItem extends StatelessWidget {
   const detailseItem({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return const Column(

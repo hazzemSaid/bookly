@@ -22,7 +22,7 @@ class Carditem extends StatelessWidget {
                 return GestureDetector(
                   onTap: () => GoRouter.of(context).push(Navcontroll.Detailes),
                   child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     child: item_image(
                       book: state.books[indx],
                     ),
@@ -33,7 +33,8 @@ class Carditem extends StatelessWidget {
             ),
           );
         } else if (state is FetchFeaturedBooksFailure) {
-          return Text("FetchFeaturedBooksFailure");
+          return Text(state
+              .message); // Return an error message if state is FetchFeaturedBooksFailure
         } else {
           return const CircularProgressIndicator(); // Return an empty widget if state is not FetchFeaturedBooksSccuess
         }

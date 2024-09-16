@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bookly_app/core/util/navcontroll.dart';
 import 'package:bookly_app/features/home/persentation/view_model/fetch_newest_books/fetch_newest_books_cubit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,11 +33,14 @@ class bookListView extends StatelessWidget {
                     children: [
                       Container(
                         padding: const EdgeInsets.only(left: 25),
-                        child: Image.network(
-                          state.books[indx].volumeInfo!.imageLinks!.thumbnail!,
-                          fit: BoxFit.contain,
-                          height: 105,
-                          width: 70,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            imageUrl: state.books[indx].volumeInfo?.imageLinks
+                                ?.thumbnail as String,
+                            height: 100,
+                            width: 70,
+                          ),
                         ),
                       ),
                       const SizedBox(
@@ -48,7 +52,7 @@ class bookListView extends StatelessWidget {
                         children: [
                           Text(
                             "${state.books[indx].volumeInfo!.title?.substring(0, min(state.books[indx].volumeInfo!.title!.length, 40))}...",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 10,
                             ),
                           ),
@@ -59,7 +63,7 @@ class bookListView extends StatelessWidget {
                                         min<int>(
                                             state.books[indx].volumeInfo!
                                                 .authors![0]!.length,
-                                            12)) ??
+                                            10)) ??
                                 '',
                           ),
                           Row(
@@ -67,7 +71,7 @@ class bookListView extends StatelessWidget {
                               Text(state.books[indx].saleInfo!.saleability
                                   as String),
                               const SizedBox(
-                                width: 123,
+                                width: 50,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -99,7 +103,9 @@ class bookListView extends StatelessWidget {
             itemCount: state.books.length, // Adjust based on your data
           );
         } else {
-          return const CircularProgressIndicator.adaptive();
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       },
     );

@@ -7,7 +7,6 @@ import 'Sections/photo_for_detailes_item.dart';
 
 class Detailesscreenbody extends StatelessWidget {
   const Detailesscreenbody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
