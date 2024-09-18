@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/Detailes/Sections/custom_bottom.dart';
+import 'package:bookly_app/features/Detailes/widgets/custom_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

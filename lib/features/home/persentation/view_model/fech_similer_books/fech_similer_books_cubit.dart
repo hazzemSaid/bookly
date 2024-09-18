@@ -8,8 +8,10 @@ import 'package:equatable/equatable.dart';
 part 'fech_similer_books_state.dart';
 
 class FechSimilerBooksCubit extends Cubit<FechSimilerBooksState> {
-  FechSimilerBooksCubit(super.initialState, this.home);
   final HomeRepoImpl home;
+
+  FechSimilerBooksCubit(this.home) : super(FechSimilerBooksInitial());
+
   Future<dynamic> similer_books() async {
     try {
       var response = home.GetSimilerBooks(category: "programming");
