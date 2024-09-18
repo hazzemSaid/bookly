@@ -47,13 +47,16 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Future<Either<Failures, List<BookModel>>> GetSimilerBooks(
-      {required String category}) async {
+      {required String category, required String id}) async {
     try {
-      var response = await apiServise.get('volumes?q=art&filter=free-ebooks');
+      var response = await apiServise
+          .get('volumes?q=$category&filter=free-ebooks&Sorting=relevance');
 
       List<BookModel> books = [];
       for (var item in response['items']) {
-        if (item['category'] == category) books.add(BookModel.fromJson(item));
+        print(item[id]);
+        if (item['id'] == id) continue;
+        books.add(BookModel.fromJson(item));
       }
       return Right(books);
     } catch (e) {

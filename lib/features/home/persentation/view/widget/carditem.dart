@@ -1,9 +1,9 @@
-import 'package:bookly_app/core/util/navcontroll.dart';
+import 'package:bookly_app/features/Detailes/Screens/DetailesScreen.dart';
 import 'package:bookly_app/features/home/persentation/view/widget/image_item.dart';
+import 'package:bookly_app/features/home/persentation/view_model/fech_similer_books/fech_similer_books_cubit.dart';
 import 'package:bookly_app/features/home/persentation/view_model/fetch_featured_books/fetch_featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class Carditem extends StatelessWidget {
   const Carditem({super.key});
@@ -20,7 +20,18 @@ class Carditem extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, indx) {
                 return GestureDetector(
-                  onTap: () => GoRouter.of(context).push(Navcontroll.Detailes),
+                  onTap: () {
+                    BlocProvider.of<FechSimilerBooksCubit>(context)
+                        .similer_books(
+                            id: (state.books[indx].id ?? '0'),
+                            category:
+                                state.books[indx].volumeInfo?.categories?[0] ??
+                                    '');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => (Detailesscreen(
+                              book: state.books[indx],
+                            ))));
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: item_image(

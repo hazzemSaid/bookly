@@ -31,7 +31,7 @@ class Bookly extends StatelessWidget {
         BlocProvider(
             create: (context) => FechSimilerBooksCubit(
                   get<HomeRepoImpl>(),
-                )..similer_books())
+                ))
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

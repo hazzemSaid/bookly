@@ -1,4 +1,3 @@
-import 'package:bookly_app/features/Detailes/Screens/DetailesScreen.dart';
 import 'package:bookly_app/features/home/persentation/view/Screens/home_screen.dart';
 import 'package:bookly_app/features/search/search_view.dart';
 import 'package:bookly_app/features/splash/presentation/view_model/widgets/splash_Screen.dart';
@@ -25,11 +24,11 @@ abstract class Navcontroll {
         path: homepage,
         builder: (context, state) => const Homepage(),
       ),
-      GoRoute(
+      /*GoRoute(
           path: Detailes,
           builder: (context, state) {
             return const Detailesscreen();
-          }),
+          }),*/
     ],
   );
 }
