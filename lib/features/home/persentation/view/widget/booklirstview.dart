@@ -67,7 +67,7 @@ class bookListView extends StatelessWidget {
                                             state.books[indx].volumeInfo!
                                                 .authors![0]!.length,
                                             10)) ??
-                                '',
+                                'no author',
                           ),
                           const SizedBox(
                             height: 5,
@@ -77,7 +77,7 @@ class bookListView extends StatelessWidget {
                               Text(state.books[indx].saleInfo!.saleability
                                   as String),
                               const SizedBox(
-                                width: 50,
+                                width: 150,
                               ),
                               Row(
                                 mainAxisAlignment:
