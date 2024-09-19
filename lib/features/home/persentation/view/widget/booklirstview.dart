@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:bookly_app/features/Detailes/Screens/DetailesScreen.dart';
-import 'package:bookly_app/features/home/persentation/view_model/fech_similer_books/fech_similer_books_cubit.dart';
+import 'package:bookly_app/core/util/navcontroll.dart';
 import 'package:bookly_app/features/home/persentation/view_model/fetch_newest_books/fetch_newest_books_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class bookListView extends StatelessWidget {
   const bookListView({
@@ -25,14 +25,8 @@ class bookListView extends StatelessWidget {
             itemBuilder: (context, indx) {
               return GestureDetector(
                 onTap: () {
-                  BlocProvider.of<FechSimilerBooksCubit>(context).similer_books(
-                      id: (state.books[indx].id ?? '0'),
-                      category:
-                          state.books[indx].volumeInfo?.categories?[0] ?? '');
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => (Detailesscreen(
-                            book: state.books[indx],
-                          ))));
+                  GoRouter.of(context)
+                      .go(Navcontroll.Detailes, extra: state.books[indx]);
                 },
                 child: Container(
                   width: double.infinity,

@@ -1,37 +1,37 @@
 import 'package:bookly_app/features/Detailes/widgets/custom_bottom.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class detailseItem extends StatelessWidget {
-  const detailseItem({
-    super.key,
-  });
+  final BookModel book;
+  const detailseItem({super.key, required this.book});
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'The Jungle Book',
-          style: TextStyle(
+          book.volumeInfo?.title as String,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: double.infinity,
           height: 10,
         ),
         Text(
-          'Rudyard Kipling',
-          style: TextStyle(
+          book.volumeInfo?.description ?? "No description",
+          style: const TextStyle(
             color: Colors.white24,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -45,7 +45,14 @@ class detailseItem extends StatelessWidget {
             SizedBox(
               width: 5,
             ),
-            Text("4.8"),
+            Text(
+              "4.5",
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             SizedBox(
               width: 5,
             ),

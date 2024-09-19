@@ -10,10 +10,11 @@ class photoforidetailestem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: CachedNetworkImage(
         imageUrl: imageUrl,
+        errorWidget: (context, url, error) => const Icon(Icons.error),
         fit: BoxFit.cover,
         height: 300,
         width: 200,

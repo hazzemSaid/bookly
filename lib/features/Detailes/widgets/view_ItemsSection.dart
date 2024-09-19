@@ -1,12 +1,15 @@
-import 'package:bookly_app/features/Detailes/Screens/DetailesScreen.dart';
+import 'package:bookly_app/core/util/navcontroll.dart';
 import 'package:bookly_app/features/home/persentation/view_model/fech_similer_books/fech_similer_books_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class viewitemsSection extends StatelessWidget {
   const viewitemsSection({
     super.key,
+    required category,
+    required String id,
   });
 
   @override
@@ -24,18 +27,9 @@ class viewitemsSection extends StatelessWidget {
                 return GestureDetector(
                   onTap: () async {
                     print('id: ${state.books[index].id}');
-                    BlocProvider.of<FechSimilerBooksCubit>(context)
-                        .similer_books(
-                            category:
-                                state.books[index].volumeInfo?.categories?[0] ??
-                                    '',
-                            id: state.books[index].id ?? '0');
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => (Detailesscreen(
-                          book: state.books[index],
-                        )),
-                      ),
+                    GoRouter.of(context).pushReplacement(
+                      Navcontroll.Detailes,
+                      extra: state.books[index],
                     );
                   },
                   child: SizedBox(

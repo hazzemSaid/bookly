@@ -9,7 +9,7 @@ class splash_Screen extends StatelessWidget {
     return Scaffold(
         body: Container(
       width: double.infinity,
-      child: Splash_Viewbody(),
+      child: const Splash_Viewbody(),
     ));
   }
 }

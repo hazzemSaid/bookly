@@ -1,6 +1,12 @@
+import 'package:bookly_app/core/util/servise_locator.dart';
+import 'package:bookly_app/features/Detailes/Screens/DetailesScreen.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/features/home/data/reops/home_repo_impl.dart';
 import 'package:bookly_app/features/home/persentation/view/Screens/home_screen.dart';
+import 'package:bookly_app/features/home/persentation/view_model/fech_similer_books/fech_similer_books_cubit.dart';
 import 'package:bookly_app/features/search/search_view.dart';
 import 'package:bookly_app/features/splash/presentation/view_model/widgets/splash_Screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class Navcontroll {
@@ -24,11 +30,18 @@ abstract class Navcontroll {
         path: homepage,
         builder: (context, state) => const Homepage(),
       ),
-      /*GoRoute(
+      GoRoute(
           path: Detailes,
           builder: (context, state) {
-            return const Detailesscreen();
-          }),*/
+            return BlocProvider(
+              create: (context) => FechSimilerBooksCubit(
+                get<HomeRepoImpl>(),
+              ),
+              child: Detailesscreen(
+                book: state.extra as BookModel,
+              ),
+            );
+          }),
     ],
   );
 }
