@@ -26,7 +26,7 @@ class bookListView extends StatelessWidget {
               return GestureDetector(
                 onTap: () {
                   GoRouter.of(context)
-                      .go(Navcontroll.Detailes, extra: state.books[indx]);
+                      .push(Navcontroll.Detailes, extra: state.books[indx]);
                 },
                 child: Container(
                   width: double.infinity,
