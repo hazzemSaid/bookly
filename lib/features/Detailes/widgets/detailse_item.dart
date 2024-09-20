@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bookly_app/features/Detailes/widgets/custom_bottom.dart';
 import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,11 @@ class detailseItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          book.volumeInfo?.title?.substring(0, 10) ?? "No title",
+          book.volumeInfo?.title?.substring(
+                0,
+                min(book.volumeInfo?.title?.length ?? 0, 10),
+              ) ??
+              "No title",
           style: const TextStyle(
             color: Colors.white,
             fontSize: 25,

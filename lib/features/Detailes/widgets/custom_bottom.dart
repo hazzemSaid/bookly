@@ -1,6 +1,6 @@
+import 'package:bookly_app/core/util/helper/luncher_url.dart';
 import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class customBottom extends StatelessWidget {
   const customBottom({
@@ -45,13 +45,8 @@ class customBottom extends StatelessWidget {
           GestureDetector(
             onTap: () async {
               //lanuch the cart
-              final url = book.volumeInfo?.previewLink;
-              Uri _url = Uri.parse(url!);
-              if (await canLaunchUrl(_url)) {
-                await launchUrl(_url);
-              } else {
-                print('Could not launch $url');
-              }
+              await launcher_custom_url(
+                  url: book.volumeInfo?.previewLink ?? "", context: context);
             },
             child: Container(
               height: 150,
@@ -65,7 +60,7 @@ class customBottom extends StatelessWidget {
               child: const Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'lanuch ',
+                  'preview ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
