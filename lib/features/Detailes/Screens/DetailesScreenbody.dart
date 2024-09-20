@@ -27,6 +27,7 @@ class _DetailesscreenbodyState extends State<Detailesscreenbody> {
         id: widget.book.id as String);
   }
 
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: SingleChildScrollView(
@@ -43,7 +44,9 @@ class _DetailesscreenbodyState extends State<Detailesscreenbody> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 60.0,
+              left: 100.0,
+              bottom: 20,
+              top: 10,
             ),
             child: photoforidetailestem(
               imageUrl: widget.book.volumeInfo?.imageLinks?.thumbnail as String,

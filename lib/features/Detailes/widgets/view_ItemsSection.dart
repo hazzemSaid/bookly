@@ -25,8 +25,7 @@ class viewitemsSection extends StatelessWidget {
               itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () async {
-                    print('id: ${state.books[index].id}');
+                  onTap: () {
                     GoRouter.of(context).pushReplacement(
                       Navcontroll.Detailes,
                       extra: state.books[index],

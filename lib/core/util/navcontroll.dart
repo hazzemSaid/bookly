@@ -38,7 +38,9 @@ abstract class Navcontroll {
                 get<HomeRepoImpl>(),
               ),
               child: Detailesscreen(
-                book: state.extra as BookModel,
+                book: state.extra != null
+                    ? state.extra as BookModel
+                    : BookModel(),
               ),
             );
           }),

@@ -12,7 +12,7 @@ class detailseItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          book.volumeInfo?.title as String,
+          book.volumeInfo?.title?.substring(0, 10) ?? "No title",
           style: const TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -23,49 +23,61 @@ class detailseItem extends StatelessWidget {
           width: double.infinity,
           height: 10,
         ),
-        Text(
-          book.volumeInfo?.description ?? "No description",
-          style: const TextStyle(
-            color: Colors.white24,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
+        Opacity(
+          opacity: 0.5,
+          child: Text(
+            book.volumeInfo?.description ?? "",
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               FontAwesomeIcons.star,
               color: Colors.yellow,
               size: 15,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Text(
-              "4.5",
+              (book.saleInfo?.country).toString() ?? "No country",
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              width: 5,
+            const SizedBox(
+              width: 10,
             ),
-            Text("2021"),
-            SizedBox(
+            Text(
+              (book.saleInfo?.saleability).toString() ?? "No price",
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
               width: 15,
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-        customBottom(),
+        customBottom(
+          book: book,
+        ),
       ],
     );
   }

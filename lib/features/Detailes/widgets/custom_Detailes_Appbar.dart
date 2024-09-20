@@ -12,7 +12,9 @@ class customDetailesAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             FontAwesomeIcons.x,
             size: 19,
@@ -22,6 +24,7 @@ class customDetailesAppbar extends StatelessWidget {
         IconButton(
           onPressed: () {},
           icon: const Icon(
+            // ignore: deprecated_member_use
             FontAwesomeIcons.shoppingCart,
             size: 19,
             color: Colors.white,
